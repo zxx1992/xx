@@ -1,0 +1,6 @@
+#slideshow{
+	width:100px;
+	height:100px;
+	position:relative;/*这里设置relative,图片元素设置absolute，这里就相当于给图片找了一个父元素div*/
+	overflow: hidden;     /*剪裁溢出的内容*/
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格展开关闭，表格内容帅选</title>
+  <link href="css2/style.css" rel="stylesheet" type="text/css">
+	<script src="../scripts/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+      // $(function(){
+      //    $("tr.parent").click(function(){
+      //      // $(this).siblings('.child_'+this.id).hide();//这里class和id的设置好厉害。赞一个
+      //      //更厉害的是实现来回切换
+      //      $(this).toggleClass("selected")//这里toggleclass添加或删除高亮样式
+      //             .siblings('.child_'+this.id).toggle();//hide（），show（）
+      //    }).click();//当用户刚进入页面，默认收缩。触发click()事件
+         
+      // })
+// ：contains选择器+filter方法实现表单内容的帅选
+      $(function(){
+        // $("#filterName").keyup(function(){
+        //   $("table tbody tr").hide()
+        //                     .filter(":contains('"+($(this).val())+"')").show();
+        // })
+          $("#filterName").keyup(function(){
+        $("tbody>tr")
+          .hide()
+          .filter(":contains('"+( $(this).val() )+"')")
+          .show();
+     });//这里刷新网页后，表单的值还在，但是表格内容已经被刷新。这种情况只在ie里面存在，解决办法，当dom加载完后，立即执行keyup()事件
+      })
+	
+	</script>
+</head>
+<body>
+    <div>
+      帅选：<input type="text" value="" id="filterName">
+    </div>
+    <table>
+        
+      <thead>
+        <tr><td>姓名</td><td>姓名</td><td>暂住地</td></tr>
+      </thead>
+      <tbody>
+        <tr class="parent" id="row_01"><td colspan="3">前台设计组</td></tr>
+        <tr class="child_row_01"><td>张三</td><td>男</td><td>浙江杭州</td></tr>
+        <tr class="child_row_01"><td>张三</td><td>男</td><td>浙江杭州</td></tr>
+
+        <tr class="parent" id="row_02"><td colspan="3">前台开发组</td></tr>
+        <tr class="child_row_02"><td>王五</td><td>男</td><td>浙江杭州</td></tr>
+        <tr class="child_row_02"><td>李三</td><td>男</td><td>浙江杭州</td></tr>
+
+        <tr class="parent" id="row_03"><td colspan="3">后台开发组</td></tr>
+        <tr class="child_row_03"><td>张三</td><td>男</td><td>浙江杭州</td></tr>
+        <tr class="child_row_03"><td>张三</td><td>男</td><td>浙江杭州</td></tr>
+        <tr class="child_row_03"><td>张三</td><td>男</td><td>浙江杭州</td></tr>
+      </tbody>
+    </table>
+
+
+</body>
+</html>

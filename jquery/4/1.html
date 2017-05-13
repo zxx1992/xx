@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ch4</title>
+	<style>
+*{margin:0;padding:0;}
+		#panel{width:320px;margin:0 auto;border:1px solid #940C0C;margin-top:10px;}
+		.head{height:30px;line-height:30px;background-color:#938E8E;border-bottom: 1px solid #0050D0;text-indent:13px;}
+		.content{width:300px;height:200px;padding:10px;display: none;}
+		.highlight{background:#F80505;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	// //事件类型click;
+	// 	$(function(){
+	// 		$("#panel h5.head").bind("click",function(){
+	// 			if($(this).next().is(":visible")){
+	// 				$(this).next().hide();
+	// 			}else{
+	// 				$(this).next().show();
+	// 			}
+				
+	// 		})
+	// 	})
+ //    //时间类型mouseover mouseout
+	// 		$(function(){
+	// 		$("#panel h5.head").bind("mouseover",function(){
+	// 			$(this).next().show();
+	// 		}).bind("mouseout",function(){
+	// 			$(this).next().hide();
+	// 		})
+	// 	})
+ //   //时间类型hover(mouseover mouseout)
+	// 		$(function(){
+	// 		$("#panel h5.head").hover(function(){
+	// 			$(this).next().show();
+	// 		},function(){
+	// 			$(this).next().hide();
+	// 		})
+	// 	})
+			   //时间类型toggle() 最厉害，棒棒哒,多个函数，依次执行，toggle还有另外一个作用：===hide()和show()
+		// 	$(function(){
+		// 	$("#panel h5.head").toggle(function(){
+				
+		// 		$(this).addClass('highlight');
+		// 		$(this).next().show();
+		// 	},function(){
+				
+		// 		$(this).removeClass('highlight');
+		// 		$(this).next().hide();
+		// 	})
+		// })
+          //鼠标移入移出，class来回切换,两种方法；
+			$(function(){
+				// $("#panel h5.head").bind("mouseover mouseout",function(){
+    //                     $(this).toggleClass("highlight");
+				// })
+
+				$("#panel h5.head").bind("mouseover",function(){
+                        $(this).toggleClass("highlight");
+				}).bind("mouseout",function(){
+                        $(this).toggleClass("highlight");
+				});
+			})
+
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head" class="highlight">who are you?</h5>
+		<div class="content">
+			aehfkaf jjfaagwioewfajajwo men shi zenm el e nixioade ma zhende chuxian shenme wenrilema 
+		</div>
+	</div>
+</body>
+</html>

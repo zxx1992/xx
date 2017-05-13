@@ -1,0 +1,414 @@
+#header{
+	background: url("../images/headerbg.png") repeat-x scroll 0 0 #FFFFFF;
+	height:105px;
+}
+#header .cont{
+	position: relative;/*如果改为absolute看看z-index是否起作用*/
+	width:990px;
+	height:105px;
+    margin:0 auto;
+    z-index: 100;/*试着改变一下值大小*/
+}
+#header .logo{
+	float:left;
+	margin-left:10px;
+	color:#FFF;
+	height:80px;/*不要也可以*/
+	line-height: 80px;
+}
+#header .search{
+	position: absolute;
+	left:198px;
+	top:20px;
+}
+#skin{
+	float:right;
+	width:120px;
+	margin:10px;
+	padding:4px;
+}
+#skin li{
+	display:block;
+	width:15px;
+	height:15px;
+	float:left;
+	cursor:pointer;/*cursor 属性规定要显示的光标的类型（形状*/
+	margin-right:4px;
+	background-image: url("../images/theme.gif");
+	overflow: hidden;
+	text-indent: -9999px;
+}
+#skin_0{background-position: 0px 0px;}
+#skin_1{background-position: 15px 0px;}
+#skin_2{background-position: 35px 0px;}
+#skin_3{background-position: 55px 0px;}
+#skin_4{background-position: 75px 0px;}
+#skin_5{background-position: 95px 0px;}
+#skin_0 .selected{background-position: 0px 15px;}
+#skin_1 .selected{background-position: 15px 15px;}
+#skin_2 .selected{background-position: 35px 15px;}
+#skin_3 .selected{background-position: 55px 15px;}
+#skin_4 .selected{background-position: 75px 15px;}
+#skin_5 .selected{background-position: 95px 15px;}
+.mainNav{
+  position:absolute;
+  width:990px;
+  height:37px;
+  line-height: 37px;
+  background-color:#4A4A4A;
+  left:0;
+  top:68px;
+  z-index:100;
+}
+.mainNav .nav{
+	 display: inline;
+    float: left;
+	margin-left:25px;
+}
+.mainNav .nav li{
+	float: left;
+margin-right:14px;
+position:relative;
+z-index: 100;
+display:inline;/*作用？*/
+}
+.mainNav ul li a{
+	display: block;
+	color:#fff;
+	padding: 0 8px;
+    font-size: 14px;
+    font-weight:700;/*设置字体的粗细*/
+} 
+.mainNav ul li a:hover{
+
+}
+/*二级菜单的样式,添加html元素后细读*/
+/* 二级菜单 */
+.jnNav {
+    background:#FFFFFF;
+    border: 1px solid #B1B1B1;
+	border-top:0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 37px;
+    width: 474px;
+    z-index: 1000;
+	display:none;
+}
+.jnNav .subitem {
+    float: left;
+    height: auto !important;
+    min-height: 100px;
+    padding: 10px 12px;
+    width: 450px;
+}
+.jnNav .subitem dl {
+    border-top: 1px dashed #C4C4C4;
+    overflow: hidden;
+    padding: 8px 0;
+	float:left;
+}
+.jnNav .subitem .fore {
+    border-top-style: none;
+    padding-top: 0;
+}
+.jnNav .subitem dt {
+    float: left;
+    font-weight: bold;
+    line-height: 16px;
+    padding: 4px 3px;
+    text-align: center;
+    width: 76px;
+}
+.jnNav .subitem dt a {
+    color: #000;
+    font-weight: 700;
+	font-size:12px;
+	padding:0;
+}
+.jnNav .subitem dd {
+    float: left;
+    overflow: hidden;
+    padding: 0;
+    width: 364px;
+}
+.jnNav .subitem em {
+    border-right: 1px solid #CCCCCC;
+    float: left;
+    font-style: normal;
+    height: 14px;
+    line-height: 14px;
+    margin: 5px 0;
+    padding: 0 8px;
+}
+.jnNav .subitem em a {
+    color: #666666;
+    white-space: nowrap;
+	font-size:12px;
+	font-weight:normal;
+	padding:0;
+}
+.jnNav .subitem em.noborder {
+    border-right: 0 none;
+}
+/*主体大框架的结构样式*/
+#content{
+	width:990px;
+	position: relative;
+	margin:0 auto;
+	clear:left;/*clear 属性规定元素的哪一侧不允许其他浮动元素*/
+}
+.janeshop{
+	height:560px;
+	overflow:hidden;
+	padding:10px 0;
+}
+#jncatalog{
+	width:187px;
+	height:560px;
+	float:left;
+	margin:0 11px 0 0;
+	overflow:hidden;
+}
+#jnimageroll{
+	position:relative;
+	width:550px;
+	height:320px;
+	float:left;
+	overflow: hidden;
+	margin:0 11px 0 0;
+}
+#jnnotice{
+	width:230px;
+	height:321px;
+	float:left;
+	overflow:hidden;
+}
+#jnbrand{
+	width:790px;
+	height:230px;
+	float:left;
+	margin:10px 0 0;
+	overflow:hidden;
+}
+/*框架填充内容的样式*/
+#jncatalog h2{
+	background-color:#6e6e6e;
+	height:30px;
+	line-height:30px;/*宽度继承父元素jncatalog*/
+     font-size:12px;
+     color:#fff;
+     padding-left:14px;/*如果字体不居中，可以采用text-indent,padding-left也可以*/
+}
+.jncatainfo{/*这是盒子内容的宽高，*/
+	width:165px;
+	height:524px;
+	border:1px solid #6e6e6e;
+	border-width:0 1px 1px;
+	padding:5px 10px 0;/*相对于父元素的内边距*/
+	overflow: hidden;
+}
+.jncatainfo h3{
+	border-bottom:1px solid #eeeeee;
+	height:24px;
+	line-height: 24px;
+
+}
+.jncatainfo ul{
+	float:left;
+	padding:0 2px 8px;
+}
+.jncatainfo ul li{
+	float:left;
+	width:79px;
+	height:24px;
+	line-height: 24px;
+	color:#aeadae;
+	position: relative;
+}
+.jncatainfo ul li a{
+	color:#444444;
+}
+.jncatainfo ul li a:hover{
+	color:#008cd7;
+	text-decoration: none;
+}
+.jncatainfo ul li a.promoted{
+	color:#F51313;
+}
+.jncatainfo li .hot{/*有问题*/
+  background: url("../images/hot.gif") no-repeat scroll 0 0 transparent;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    width: 21px;
+}
+
+#jnimageroll img{
+	position:absolute;
+	left:0;
+	top:0;
+}
+#jnimageroll div{
+	position:absolute;
+	float:left;
+	overflow: hidden;
+	bottom:0;
+}
+#jnimageroll div a{
+	background-color:#444444;
+	color:#FFFFFF;
+	width:79px;
+	height:32px;
+	overflow: hidden;
+	display: inline-block;
+	float:left;
+	margin-right:1px;
+	padding:5px 15px;
+	text-align:center;
+}
+#jnimageroll div a:hover{
+	text-decoration: none;
+	color:#FFFFFF;
+}
+#jnimageroll .last{
+	margin:0;
+	width:80px;
+}
+#jnimageroll a.chos{
+	background: url("../images/adindex.gif")no-repeat center 39px #37a7d7;
+	color:#ffffff;
+}
+#jnmiaosha{
+    float:left;
+    width:230px;
+    height:176px;
+    overflow:hidden;
+    margin-bottom: 10px;
+}
+#jnnoticeinfo{
+	float:left;
+	width:228px;
+	height:132px;
+	border:1px solid #dfdfdf;
+	overflow: hidden;
+}
+#jnnoticeinfo h2{
+	height:21px;
+	line-height: 21px;
+	border-bottom: 1px solid #dfdfdf;
+	text-indent: 13px;
+}
+#jnnoticeinfo ul{
+	float:left;
+	padding:6px 2px 0 12px;
+}
+#jnnoticeinfo ul li{
+	height:21px;
+	line-height: 21px;
+	overflow: hidden;
+}
+#jnnoticeinfo ul li a{
+	color:#666666;
+}
+#jnnoticeinfo ul li a:hover{
+	color:#008cd7;
+	text-decoration: none;
+}
+#jnbrandtab{
+	width:790px;
+	height:29px;
+	position: relative;
+	float:left;
+	border-bottom:1px solid #e4e4e4;
+}
+#jnbrandtab h2{
+	position: absolute;
+	width:100px;
+	height:29px;
+	line-height: 29px;
+	left:0;
+}
+#jnbrandtab ul{/*perfect=绝对定位+0 0*/
+	position: absolute;
+	right:0;
+	top:0;
+}
+#jnbrandtab ul li{
+	float:left;
+	margin-right:10px;
+}
+#jnbrandtab ul li a{
+	color:#000000;
+	background-color:#e4e4e4;
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	padding: 0 10px;/*厉害,对象呈现为inline对象，但是对象的内容作为block对象呈现*/
+}
+#jnbrandtab .chos{
+	background: url("../images/chos.gif")no-repeat scroll 50% bottom transparent;
+	padding-bottom:3px;
+}
+#jnbrandtab .chos a{
+	background-color:#fa5880;
+	color:#ffffff;
+	outline:0 none;outline /*（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用*/
+}
+#jnbrandcontent{
+	width:790px;
+	height:190px;
+	float:left;
+	overflow: hidden;
+	margin:8px 5px;
+	position: relative;
+}
+#jnbrandlist{
+	width:3200px;
+	left:0;
+	top:0;
+	position: absolute;
+}
+#jnbrandlist li{
+	float:left;
+	width:185px;
+	height:188px;
+	padding:0 5px;
+	overflow: hidden;
+	position: relative;
+
+}
+#jnbrandlist li img{
+	position: absolute;
+	left:0;
+	top:0;
+}
+#jnbrandlist li span{
+	background-color:#efefef;
+	width:183px;
+	height:24px;
+	line-height: 24px;
+	bottom:0;
+	display: block;
+	overflow: hidden;
+	text-align:center;
+	position: absolute;
+	font-size:14px;
+}
+#jnbrandlist li a{
+	color:#666666;
+}
+#jnbrandlist li a:hover{
+	color:#008cd7;
+	text-decoration: none;
+}
+#footer{
+	
+	width:990px;
+	margin:0 auto;
+	background-color:#BFBBBB;
+	text-align:center;
+	font-size:14px;
+	padding:5px;
+}

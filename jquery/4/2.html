@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ch4</title>
+	<style>
+*{margin:0;padding:0;}
+		#panel{width:320px;margin:0 auto;border:1px solid #940C0C;margin-top:10px;}
+		.head{height:30px;line-height:30px;background-color:#938E8E;border-bottom: 1px solid #0050D0;text-indent:13px;}
+		span{width:300px;height:200px;padding:10px;background-color:#837F7F;display:block;}
+		.highlight{background:#F80505;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	//这里span和head都绑定了同一个事件，就会发生事件冒泡行为，比如当点击span时，标题和span内容都会变色
+	  //       $(function(){
+	  //       	$('body').bind("click",function(event){
+   //                     $('.head').css("background","blue");
+   //                     //阻止事件冒泡；
+	  //       	});
+	  //       	$('span').bind("click",function(event){
+   //                     $('span').css("background","red");
+   //                      event.stopPropagation();
+   //                      return false;//event.stopPropagation()和event.preventDefault()
+
+	  //       	})
+	  //       })
+	  //    //event.pageX, event.pageY
+	  //       $(function(){
+	  //       	$('span').click(function(event){
+   //                     alert("current position:"+event.pageX+","+event.pageY);
+   //                     return false;
+	  //       	})
+	  //       })
+	  //      //获取鼠标左中右按键，分别对应1,2,3；；在键盘事件中获取键盘的按键；
+	  //           $(function(){
+	  //       	$('span').mousedown(function(event){
+   //                     alert(event.which);
+   //                     return false;
+	  //       	})
+	  //       })
+   //                 $(function(){
+	  //       	$('span').keyup(function(event){
+   //                     alert(event.which);
+   //                     return false;
+	  //       	})
+	        
+	  //       })
+   //      //移除事件 先删除，再点击查看
+   //        $(function(){
+   //           $("#btn").bind("click",myfunc1 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                   }).bind("click",myfunc2 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                    }).bind("click",myfunc3 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //           });
+   //             $('#bt').click(function(){
+   //           	$('#btn').unbind("click",myfunc2);
+   //           });
+
+           
+   //        })
+   //      //one 用户只在第一次单击按钮时，处理函数才执行，之后统一不起作用
+	  // $(function(){
+   //           $("#btn").one("click",myfunc1 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                   }).one("click",myfunc2 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                    }).one("click",myfunc3 = function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //           });
+   //             $('#bt').click(function(){
+   //           	$('#btn').unbind("click",myfunc2);
+   //           });
+
+           
+   //        })
+
+	  // //添加事件命名空间，便于管理
+	  // $(function(){
+	  // 	      $("#btn").bind("click.plugin", function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                   }).bind("mouseover.plugin", function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //                    }).bind("dbclick", function(){
+   //           	          $("#test").append("<p>weorwr</p>")
+   //           });
+   //             $('#bt').click(function(){
+   //           	$('#btn').unbind(".plugin");
+   //           });
+	  // })
+
+	    $(function(){
+	  	      $("#btn").bind("click.plugin", function(){
+             	          $("#test").append("<p>weorwr</p>")
+                     }).bind("click", function(){
+             	          $("#test").append("<p>我们呵呵哒</p>")
+                      });
+               $('#delTwo').click(function(){
+             	$('#btn').trigger("click");//单击bt按钮，只会触发btn的click事件，如果去掉！则两个事件都触发。
+             });
+	  })
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head" class="highlight">who are you?</h5>
+		
+			<span>aehfkaf jjfaagwioewfajajwo men shi zenm el e nixioade ma zhende chuxian shenme wenrilema </span>
+		
+	</div>
+	<button id="btn">点我绑定事件</button>
+	<button id="delTwo">点我移除事件</button>
+	<div id="test"></div>
+</body>
+</html>

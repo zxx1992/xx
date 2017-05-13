@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模拟操作</title>
+	<style>
+*{margin:0;padding:0;}
+		#panel{width:320px;margin:0 auto;border:1px solid #940C0C;margin-top:10px;}
+		.head{height:30px;line-height:30px;background-color:#938E8E;border-bottom: 1px solid #0050D0;text-indent:13px;}
+		span{width:300px;height:200px;padding:10px;background-color:#837F7F;display:block;}
+		.highlight{background:#F80505;}
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		//两种写法
+		$("#btn").trigger("click");
+		$("#btn").click();
+       //也可以触发自定义的事件
+       $("#btn").bind("myclick",function(){
+       	$("#test").append("<p></p>");
+       	$("#btn").trigger("myclick");
+       })
+      
+       $("input").trigger("focus");//不仅会触发绑定的focus事件。也会使input元素得到焦点。（浏览器的默认行为）
+       $("input").triggerHandler("focus");//阻止默认行为；
+
+	})
+	</script>
+</head>
+<body>
+	<div id="panel">
+		<h5 class="head" class="highlight">who are you?</h5>
+		
+			<span>aehfkaf jjfaagwioewfajajwo men shi zenm el e nixioade ma zhende chuxian shenme wenrilema </span>
+		
+	</div>
+	<button id="btn">点我绑定事件</button>
+	<button id="delTwo">点我移除事件</button>
+	<div id="test"></div>
+</body>
+</html>

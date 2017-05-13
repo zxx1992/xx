@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery中的动画</title>
+	<style>
+		#panel{
+			width:200px;
+			height:200px;
+			background-color:#E3B9B9;
+			border:1px solid #050505;
+			position:absolute;/*or relative 这个必须要有，因为要让元素的left样式动起来，影响元素的top,left,bottom,righe*/
+		    opacity:0.5;
+		    }
+
+	</style>
+	<script type="text/javascript" src="../scripts/jquery.js"></script>
+	<script type="text/javascript">
+		// $(function(){
+		// 	$("#btn").toggle(function(){
+		// 		$("#panel").hide(600);
+		// 	},function(){
+		// 		$("#panel").show(600);//参数是指图片显示出来的速度（改变内容的h,w,opacity
+		// 	})
+		// })
+	    $(function(){
+			$("#btn").toggle(function(){
+				$("#panel").fadeIn();
+			},function(){
+				$("#panel").fadeOut();//参数是指图片显示出来的速度（只改变内容的opacity
+			})
+		})
+
+		$(function(){
+			$("#btn").click(function(){
+				$("#panel").fadeToggle();})
+		})
+
+	
+		$(function(){
+			$("#btn").toggle(function(){
+				$("#panel").slideUp();
+			},function(){
+				$("#panel").slideDown();//参数是指图片显示出来的速度（只改变内容的h
+			})
+		})
+         //slideUp,sideDown的效果跟slideToggle作用一样
+		$(function(){
+			$("#btn").click(function(){
+				$("#panel").slideToggle()})
+		})
+
+
+
+  //       //自定义动画。animate()
+  //       $(function(){
+		// 	$("#panel").click(function(){
+		// 		$(this).animate({left:"+=500px",height:"300px"},3000);//元素在3s内，向右移动500px;+=可以不断移动
+		// 	})
+		// })
+        
+           //自定义动画。animate(),综合动画,//元素在3s内，向右移动500px;+=可以不断移动,最后以淡出的方式隐藏fadeOut("slow"),这里加入css样式，他不会加入到动画队列中，而是立即执行，所以需要使用回调函数
+    $(function(){
+    	$("#panel").click(function(){
+    		$(this).animate({left:"200px",height:"300px",opacity:"1"},3000)
+    		       .animate({top:"200px",width:"200px"},3000,function(){
+                   $(this).css("border","5px solid blue");
+    		       })
+    	})
+    })
+    //stop动画效果,不加true有bug.
+    $(function(){
+    	$("#panel").hover(function(){
+    		$(this).stop(true)
+    		       .animate({height:"200"},200)
+    		       .animate({width:"300"},200,function(){
+    		       	$(this).css("background","red")
+    		       });
+    	},function(){
+    		$(this).stop(true)
+    		       .animate({height:"200"},200)
+    		       .delay(300)//延迟动画
+    		       .animate({width:"300"},300);
+    	});
+    })
+    //判断元素是否处于动画状态
+    $(function(){
+    	if(!$(element).is(":animated")){
+
+    	}
+    })
+
+      $(function(){
+    	$("#panel").click(function(){
+    		$(this).toggle();
+    	})
+    })
+	</script>
+</head>
+<body>
+	<div id="panel">
+
+	
+	</div>
+	<!-- <button id="btn">点击</button> -->
+</body>
+</html>

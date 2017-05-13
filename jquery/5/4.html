@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		span{width:30px;height:30px;background-color:#807E7E;}
+	</style>
+	<script src="../scripts/jquery.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+    //复选框的应用（全选，反选，全不选）必须通过控制元素的checked属性达到目的，利用attr（）方法来设置属性checked的值
+    $(function(){
+    	//全选
+          // $("#checkedAll").click(function(){
+          // 	$('[name=items]:checkbox').attr('checked',true);
+          // });
+        //全不选
+           $("#checkedNo").click(function(){
+          	$('[name=items]:checkbox').attr('checked',false);
+          });
+        //反选
+           $("#checkedRev").click(function(){
+          	$('[name=items]:checkbox').each(function(){
+          		$(this).attr("checked",!$(this).attr("checked"));
+          	})
+          });
+         //全选和全不选的组合使用；
+           // $("#checkedAll").click(function(){
+           // 	if(this.checked){
+           // 		$('[name=items]:checkbox').attr('checked',true);
+           // 	}else{
+           // 		$('[name=items]:checkbox').attr('checked',false);
+           // 	}
+           // })
+         //更新：借助flag来改变checkedAll的
+         $('[name=items]:checkbox').click(function(){
+         	var flag=true;
+         	// $("#checkedAll").click(function(){
+         	// 	$('[name=items]:checkbox').attr('checked',false);
+         	// });
+         	$('[name=items]:checkbox').each(function(){
+         		if(!this.checked){
+         			flag=false;
+         		}
+         	});
+         	$('#checkedAll').attr('checked',flag);
+         })
+
+         $('[name=items]:checkbox').click(function(){
+         	var $count=$('[name=items]:checkbox');//复选框的总数与选中的复选框的数量
+         	  // if($count.length==$count.filter(':checked').length){
+         	  // 	$('#checkedAll').attr('check',true);
+         	  // }  
+
+         	  $('#checkedAll').attr('checked',$count.length==$count.filter(':checked').length);                   
+         })
+
+
+
+        //反选 javascript Dom方法
+           $("#checkedRev").click(function(){
+          	$('[name=items]:checkbox').each(function(){
+          		this.checked=!this.checked;
+          	})
+          }); 
+
+        //提交 val()方法获取选中的值
+           $("#send").click(function(){
+           	var str="你选中的是：rn";
+           	$('[name=items]:checkbox:checked').each(function(){
+           		str+=$(this).val()+"rn";
+           	})
+           	alert(str);
+           })
+    
+    });
+	</script>
+</head>
+<body>
+	<form>
+	你爱好的运动是？<br/>
+	    <input type="checkbox" id="checkedAll">全选/全不选<br/>
+		<input type="checkbox" name="items" value="足球">足球
+		<input type="checkbox" name="items" value="篮球">篮球
+		<input type="checkbox" name="items" value="羽毛球">羽毛球
+		<input type="checkbox" name="items" value="乒乓球">乒乓球<br/>
+		<!-- <input type="button" id="checkedAll" value="全选">
+		<input type="button" id="checkedNo" value="全不选">
+		<input type="button" id="checkedRev" value="反选"> -->
+		<input type="button" id="send" value="提交">
+	</form>
+</body>
+</html>

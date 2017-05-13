@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+body{
+	margin:0;
+	padding:40px;
+	background:#fff;
+	font:80% Arial, Helvetica, sans-serif;
+	color:#555;
+	line-height:180%;
+}
+img{border:none;}
+ul,li{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+	float:left;
+	display:inline;
+	margin-right:10px;
+	border:1px solid #AAAAAA;
+}
+
+/* tooltip */
+#tooltip{/*注意这里的css样式的作用，很重要*/
+	position:absolute;/*绝对定位，脱离文档流*/
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:red;
+}
+	
+</style>
+<script src="../scripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+function one(){
+	alert("one");
+}
+function two(){
+	alert("two");
+}
+
+one();
+two();
+		   // $(function(){
+		   // 	var x=10;
+	    // 		var y=20;
+	    // 	$("a.tooltip").mouseover(function(e){
+	    // 		this.myTitle=this.title;
+	    // 		this.title="";
+	    // 		var imgTitle=this.myTitle?"<br/>"+this.myTitle:"";
+
+	    // 		var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='产品预览图'>"+imgTitle+"</div>";
+	    // 		$("body").append(tooltip);
+
+	    // 		$("#tooltip").css({
+	    // 			"top":(e.pageY+y)+"px",
+	    // 			"left":(e.pageX+x)+"px"
+	    // 		}).show("fast");
+
+	    
+	    // 	}).mouseout(function(){
+	    // 		this.title=this.myTitle;
+	    // 		$("#tooltip").remove();
+	    	
+	    // 	}).mousemove(function(e){//mousemove可以让提示信息随着鼠标滑过链接时移动，赞
+	    // 		$("#tooltip").css({
+	    // 			"top":(e.pageY+y)+"px",
+	    // 			"left":(e.pageX+x)+"px"
+	    // 		});
+	    // 	});
+
+	    // })
+</script>
+<body>
+	<!-- <ul>
+		<li><a href="../images/42.jpg" class="tooltip" title="apple"><img src="../images/42.jpg" alt="apple"></a></li>
+		<li><a href="../images/43.jpg" class="tooltip" title="apple"><img src="../images/43.jpg" alt="apple"></a></li>
+		<li><a href="../images/44.jpg" class="tooltip" title="apple"><img src="../images/44.jpg" alt="apple"></a></li>
+	</ul> -->
+</body>
+</html>
