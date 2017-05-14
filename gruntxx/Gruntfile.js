@@ -1,0 +1,104 @@
+//配置gruntfile.js文件语法
+module.exports=function(grunt){
+	//写在这个包装函数里面。共4部分
+    //2任务配置
+	var sassStyle='expanded';
+	//grunt初始化
+	grunt.initConfig({
+		//读取json文件
+		pkg:grunt.file.readJSON('package.json'),
+		//sass插件的配置信息;
+		sass:{
+			output:{
+		//options属性可以用来覆盖内置属性的默认值
+				options:{
+					style:sassStyle
+				},
+				files:{
+		//这里是将scss/style.scss这个文件以sassStyle变量存储的方式编译成很目录下面的style.css文件
+					'./style.css':'scss/style.scss'
+				}
+			}
+
+		},
+		//配置concat插件，将两个js文件合并为一个名为global.js的文件
+		concat:{
+			options:{
+				separator:';',
+			},
+			dist:{
+				src:['src/plugin.js','src/plugin2.js'],
+		//grunt concat命令后则会出现这个文件
+				dest:'./global.js',
+			},
+		},
+		//配置压缩文件的插件
+		uglify:{
+			compressjs:{
+				files:{
+					'global.min.js':['global.js']
+				}
+			}
+
+		},
+		//检查js语法
+		jshint:{
+			build:['src/plugin.js','src/plugin2.js'],
+			options:{
+				jshintrc:'.jshintrc'
+			}
+			
+		},
+		//监听
+		watch:{
+			scripts:{
+				files:['src/plugin.js','src/plugin2.js'],
+				tasks:['concat','jshint','uglify']
+			},
+			sass:{
+				files:['scss/style.scss'],
+				tasks:['sass']
+			},
+			livereload:{
+				options:{
+					livereload:'<%=connect.options.livereload%>'
+				},
+				files:[
+				   'index.html',
+				   'global.min.js'
+				   ]
+			}
+		},
+		//合并，新建一个本地服务器，
+		connect:{
+			option:{
+				port:9000,
+				open:true,
+				livereload:35729,
+				hostname:'localhost'
+			}
+		},
+		server:{
+			option:{
+				port:9001,
+				base:''
+			}
+		}
+
+	});
+	//3插件加载
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+
+	//4任务注册,执行的时候直接在该目录下，grunt 任务名
+	grunt.registerTask('outputcss',['sass']);
+	grunt.registerTask('concatjs',['concat']);
+	grunt.registerTask('compressjs',['concat','jshint','uglify']);
+	grunt.registerTask('watchit',['sass','concat','jshint','uglify','connect','watch']);
+	
+	grunt.registerTask('default');
+}
